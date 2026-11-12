@@ -1,0 +1,18 @@
+.ytlb-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+.ytlb-button svg {
+  width: 26px;
+  height: 26px;
+  fill: #fff;
+  transition: fill 0.15s;
+}
+.ytlb-button.ytlb-active svg {
+  fill: #ff4e45;
+}
+.ytlb-button:hover {
+  opacity: 1;
+}
