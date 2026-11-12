@@ -8,7 +8,7 @@ Click it (or press **r**) to cycle through:
 |---|---|---|
 | Off | white loop | normal YouTube behaviour |
 | Loop video | red loop with **1** | the current video repeats |
-| Loop playlist | red loop with list lines | at the end of the last item, jumps back to item 1 (only offered when a playlist or queue is open) |
+| Loop playlist | red loop with list lines | at the end of the last item (or pressing Next on it), jumps back to item 1 (only offered when a playlist or queue is open) |
 
 - The mode stays on as you move between videos in the same tab.
 - Ads are never looped.

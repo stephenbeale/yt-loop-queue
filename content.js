@@ -141,6 +141,25 @@
     jumpToPlaylistStart();
   }, true);
 
+  // Pressing Next (button or Shift+N) on the last item: wrap to the start instead of
+  // letting YouTube add/play a recommended video.
+  function interceptNext(e) {
+    const v = getVideo();
+    if (effectiveMode() !== 'playlist' || isAdShowing() || !v || !isLastInPlaylist()) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    jumpToPlaylistStart();
+  }
+  window.addEventListener('click', (e) => {
+    if (e.target instanceof Element && e.target.closest('.ytp-next-button')) interceptNext(e);
+  }, true);
+  window.addEventListener('keydown', (e) => {
+    if (e.key !== 'N' || !e.shiftKey || e.ctrlKey || e.metaKey || e.altKey) return;
+    const t = e.target;
+    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+    interceptNext(e);
+  }, true);
+
   // ---------- keyboard: "r" cycles ----------
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'r' || e.ctrlKey || e.metaKey || e.altKey) return;
